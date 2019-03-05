@@ -138,7 +138,7 @@ public class SaltClientTest {
 
         Map<String, Object> retvals =
                 client.run("user", "pass", PAM, "local", new Glob(),
-                "pkg.install", args, kwargs).toCompletableFuture().join();
+                "pkg.install", false, args, kwargs).toCompletableFuture().join();
         verifyRunResults(retvals);
     }
 

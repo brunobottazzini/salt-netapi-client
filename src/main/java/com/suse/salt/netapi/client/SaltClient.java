@@ -111,7 +111,7 @@ public class SaltClient {
      */
     public <T> CompletionStage<Map<String, Object>> run(final String username, final String password,
             final AuthModule eauth, final String client, final Target<T> target,
-            final String function, List<Object> args, Map<String, Object> kwargs) {
+            final String function, final boolean fullReturn, List<Object> args, Map<String, Object> kwargs) {
         Map<String, Object> props = new HashMap<>();
         props.put("username", username);
         props.put("password", password);
@@ -119,6 +119,7 @@ public class SaltClient {
         props.put("client", client);
         props.putAll(target.getProps());
         props.put("fun", function);
+        props.put("full_return", fullReturn);
         props.put("arg", args);
         props.put("kwarg", kwargs);
 
